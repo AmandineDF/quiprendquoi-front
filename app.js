@@ -13,7 +13,6 @@ app.get('/', function(req, res) {
   res.render('index', { title: 'Qui prend quoi ?' });
 });
 
-
 app.post('/party', function(req, res) {
   console.log(req.body);
   axios
@@ -21,6 +20,10 @@ app.post('/party', function(req, res) {
   .then(({data}) => console.log(data))
   .catch((err) => console.error(err));
   res.send('Post ok !');
+});
+
+app.get('/party/:id', function(req, res) {
+  res.render('party', { title: 'Evenement 1' });
 });
 
 app.listen(port, () => console.log(`Front app listening on port ${port}!`));
