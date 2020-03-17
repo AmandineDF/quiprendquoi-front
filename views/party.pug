@@ -18,3 +18,5 @@ each item in party.items
   ul
     li= item.user
     li= item.name
+  form(method="post" action=`${url}/items/${item._id}/delete`)
+    button(type="submit") Supprimer

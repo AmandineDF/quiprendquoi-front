@@ -48,14 +48,13 @@ app.post('/party/:id/items', function(req, res) {
     .catch((err) => res.send(err));
 });
 
-/*
+
 app.post('/party/:id/items/:itemId/delete', function(req, res) {
-  console.log(req.body);
+  console.log("test");
   axios
-    .delete(`${process.env.API_URL}/party/${req.params.id}/items`, req.body)
+    .delete(`${process.env.API_URL}/party/${req.params.id}/items/${req.params.itemId}`, req.body)
     .then(() => res.redirect(`/party/${req.params.id}`))
     .catch((err) => res.send(err));
 });
-*/
 
 app.listen(port, () => console.log(`Front app listening on port ${port}!`));
