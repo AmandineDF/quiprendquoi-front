@@ -1,4 +1,7 @@
 @import "vendors/reset.scss";
+@import "config/medias.scss";
+@import "blocs/newParty.scss";
+@import "blocs/newItem.scss";
 
 body {
   display: flex;
@@ -8,87 +11,33 @@ body {
   background-color: rgb(241, 242, 245);
 }
 
+h1, h2, h3 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
 h1 {
   font-size: 3rem;
   text-transform: uppercase;
   font-weight: 900;
   color: rgb(120, 149, 158);
-  margin-bottom: 5rem;
 }
 
-main {
+.main {
   background-color: white;
-  padding: 2rem;
+  padding: 3em;
   border-radius: 5px;
-}
 
-h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-h3 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-form {
-  * {
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  label {
     display: block;
   }
 
-  div {
-    margin-bottom: 1rem;
-  }
-}
-
-label {
-  margin-bottom: 0.5rem;    
-}
-
-input {
-  padding: 0.5rem;
-  width: 100%;
-}
-
-button {
-  margin: auto;
-  text-align: center;
-  background-color: crimson;
-  color: white;
-  padding: 0.5rem 2rem;
-}
-
-.sharing {
-  margin-bottom: 2rem;
-
-  label {
-    margin-bottom: 0.5rem;
-    font-style: italic;
-  }
-}
-
-.item {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-  li {
-    display: inline;
-    margin-bottom: 0.5rem;
-  }
-
-  li:first-child {
-    margin-right: 1rem;
-  }
-
-  button {
-    background-color: transparent;
-    padding: 0;
-    color: lightseagreen;
-    text-decoration: underline;
+  input {
+    padding: 0.5rem;
   }
 }
