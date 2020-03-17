@@ -15,22 +15,37 @@ app.get('/', function(req, res) {
 });
 
 app.post('/party', function(req, res) {
-  console.log(req.body);
+  //console.log(req.body);
   axios
     .post(`${process.env.API_URL}/party`, req.body)
     .then(({ data }) => res.redirect(`/party/${data._id}`))
     .catch((err) => res.send(err));
 });
 
+
+
 //EVENEMNT
 app.get('/party/:id', function(req, res) {
+  /*
+  var itemList = [
+    {
+      author: "Francis",
+      name: "Champagne"
+    },
+    {
+      author: "Sarah",
+      name: "Mojito"
+    }
+  ];
+  */
   axios
     .get(`${process.env.API_URL}/party/${req.params.id}`)
     .then(({ data }) =>
       res.render('party', {
         party: data,
         title: data.name,
-        url: `${process.env.FRONT_URL}:${process.env.PORT}/party/${data._id}`
+        url: `${process.env.FRONT_URL}:${process.env.PORT}/party/${data._id}`,
+        //itemList: itemList
       }),
     )
     .catch((err) => console.log(err));
@@ -40,8 +55,8 @@ app.post('/party/:id', function(req, res) {
   console.log(req.body);
   axios
     .post(`${process.env.API_URL}/party`, req.body)
-    .then(({data}) => console.log(data))
-    .catch((err) => console.error(err));
+    .then(({ data }) => res.redirect(`/party/${res.params.id}`))
+    .catch((err) => res.send(err));
 });
 
 app.listen(port, () => console.log(`Front app listening on port ${port}!`));
