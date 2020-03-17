@@ -26,18 +26,6 @@ app.post('/party', function(req, res) {
 
 //EVENEMNT
 app.get('/party/:id', function(req, res) {
-  /*
-  var itemList = [
-    {
-      author: "Francis",
-      name: "Champagne"
-    },
-    {
-      author: "Sarah",
-      name: "Mojito"
-    }
-  ];
-  */
   axios
     .get(`${process.env.API_URL}/party/${req.params.id}`)
     .then(({ data }) =>
@@ -45,7 +33,6 @@ app.get('/party/:id', function(req, res) {
         party: data,
         title: data.name,
         url: `${process.env.FRONT_URL}:${process.env.PORT}/party/${data._id}`,
-        //itemList: itemList
       }),
     )
     .catch((err) => console.log(err));
