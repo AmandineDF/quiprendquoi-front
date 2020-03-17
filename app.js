@@ -28,22 +28,34 @@ app.post('/party', function(req, res) {
 app.get('/party/:id', function(req, res) {
   axios
     .get(`${process.env.API_URL}/party/${req.params.id}`)
-    .then(({ data }) =>
-      res.render('party', {
-        party: data,
-        title: data.name,
-        url: `${process.env.FRONT_URL}:${process.env.PORT}/party/${data._id}`,
-      }),
+    .then(({ data }) => {
+        console.log(data);
+        res.render('party', {
+          party: data,
+          title: data.name,
+          url: `${process.env.FRONT_URL}:${process.env.PORT}/party/${data._id}`,
+        });
+      }
     )
     .catch((err) => console.log(err));
 });
 
-app.post('/party/:id', function(req, res) {
+app.post('/party/:id/items', function(req, res) {
   console.log(req.body);
   axios
-    .post(`${process.env.API_URL}/party`, req.body)
-    .then(({ data }) => res.redirect(`/party/${res.params.id}`))
+    .post(`${process.env.API_URL}/party/${req.params.id}/items`, req.body)
+    .then(() => res.redirect(`/party/${req.params.id}`))
     .catch((err) => res.send(err));
 });
+
+/*
+app.post('/party/:id/items/:itemId/delete', function(req, res) {
+  console.log(req.body);
+  axios
+    .delete(`${process.env.API_URL}/party/${req.params.id}/items`, req.body)
+    .then(() => res.redirect(`/party/${req.params.id}`))
+    .catch((err) => res.send(err));
+});
+*/
 
 app.listen(port, () => console.log(`Front app listening on port ${port}!`));
