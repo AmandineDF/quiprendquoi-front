@@ -16,14 +16,22 @@ app.get('/', function(req, res) {
 app.post('/party', function(req, res) {
   console.log(req.body);
   axios
-  .post(`${process.env.API_URL}/party`, req.body)
-  .then(({data}) => console.log(data))
-  .catch((err) => console.error(err));
-  res.send('Post ok !');
+    .post(`${process.env.API_URL}/party`, req.body)
+    .then(({data}) => console.log(data))
+    .catch((err) => console.error(err));
+    res.send('Post ok !');
 });
 
 app.get('/party/:id', function(req, res) {
-  res.render('party', { title: 'Evenement 1' });
+  axios
+    .get(`${process.env.API_URL}/party/${req.params.id}`)
+    .then(({ data }) =>
+      res.render('party', {
+        party: data,
+        title: data.name
+      }),
+    )
+    .catch((err) => console.log(err));
 });
 
 app.listen(port, () => console.log(`Front app listening on port ${port}!`));
