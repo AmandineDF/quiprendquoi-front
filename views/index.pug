@@ -1,13 +1,15 @@
 include ../partials/header.pug
-h2 Créer un événement
-form(method="post" action="/party")
-  div
-    label(for="name") Nom de l'événement
-    input(name="name" id="name" required minlength="3" placeholder="Nouvel an")
-  div
-    label(for="author") Auteur
-    input(name="author" id="author" required placeholder="John Doe")
-  div
-    label(for="date") Date
-    input(type="date" name="date" id="date" min="2020-03-16" max="2050-03-16")
-  button(type="submit") Créer
+h1 Qui prend quoi ?
+main
+  h2 Créer un événement
+  form(method="post" action="/party")
+    div
+      label(for="name") Nom de l'événement
+      input(name="name" id="name" required minlength="3" placeholder="Nouvel an")
+    div
+      label(for="author") Auteur
+      input(name="author" id="author" required placeholder="John Doe")
+    div
+      label(for="date") Date
+      input(type="date" name="date" id="date" min="2020-03-16" max="2050-03-16")
+    button(type="submit") Créer

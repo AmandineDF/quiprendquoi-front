@@ -1,9 +1,94 @@
 @import "vendors/reset.scss";
 
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(241, 242, 245);
+}
+
+h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: rgb(120, 149, 158);
+  margin-bottom: 5rem;
+}
+
+main {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
 form {
-  border: 1px solid blue;
+  * {
+    display: block;
+  }
 
   div {
-    border: 1px solid rgb(143, 12, 12);
+    margin-bottom: 1rem;
+  }
+}
+
+label {
+  margin-bottom: 0.5rem;    
+}
+
+input {
+  padding: 0.5rem;
+  width: 100%;
+}
+
+button {
+  margin: auto;
+  text-align: center;
+  background-color: crimson;
+  color: white;
+  padding: 0.5rem 2rem;
+}
+
+.sharing {
+  margin-bottom: 2rem;
+
+  label {
+    margin-bottom: 0.5rem;
+    font-style: italic;
+  }
+}
+
+.item {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  li {
+    display: inline;
+    margin-bottom: 0.5rem;
+  }
+
+  li:first-child {
+    margin-right: 1rem;
+  }
+
+  button {
+    background-color: transparent;
+    padding: 0;
+    color: lightseagreen;
+    text-decoration: underline;
   }
 }
