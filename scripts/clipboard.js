@@ -21,5 +21,5 @@ if (navigator.clipboard) {
     .catch((err) => console.warn(err));
   }
 } else {
-  console.warn("Pas de support")
+  console.warn("Pas de support de clipboard")
 }

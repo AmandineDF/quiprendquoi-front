@@ -21,5 +21,5 @@ if (navigator.share) {
     }
   });
 } else {
-  console.warn("Pas de support")
+  console.warn("Pas de support du partage")
 }
