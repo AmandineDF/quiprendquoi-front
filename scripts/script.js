@@ -1,5 +1,1 @@
-import { clipboard } from "./clipboard";
-
-window.onload = function () {
-  clipboard();
-}
+console.log('coucou2');
