@@ -6,7 +6,7 @@ main.main
 
   div.sharing
     label(for="url") Partagez l'événement
-    input(id="url" value=`${url}`)
+    input(id="url" value=`${url}` data-clipboard=`${url}`)
   
   each item in party.items
     div.newItems__grid
