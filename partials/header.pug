@@ -10,7 +10,7 @@ html(lang="fr")
       if (navigator.serviceWorker) {
         console.log('Support du service worker');
         navigator.serviceWorker.register("/sw.js")
-          .then(() => console.log('Service worker is registered'))
+          .then(() => console.log('Le service worker est enregistré'))
           .catch(err => console.warn(err));
       } else {
         console.log('Pas de support du service worker');
