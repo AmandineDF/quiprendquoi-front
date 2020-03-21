@@ -11,6 +11,7 @@ main.main
   div.sharing
     label(for="url") Partagez l'événement
     input(id="url" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` data-share-title=`${party.name}` data-share-text=`${party.author} vous invite a rejoindre l'événement ${party.name}`)
+  a(href=`${googleAgendaLink}` target="_blank") Ajouter à Google Agenda
 
   div.items__container
   //-
@@ -21,7 +22,7 @@ main.main
         form(method="post" action=`${url}/items/${item._id}/delete`).col-3
           button(type="submit").deleteItem__button Supprimer
   -//
-  
+
   form(method="post" action=`${url}/items`).newItems__grid.newItems__grid--form
     label(for="user").col-1 Participant
     input(name="user" id="user" required placeholder="Manu").col-1

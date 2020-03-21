@@ -32,11 +32,20 @@ app.get('/party/:id', function(req, res) {
     .get(`${process.env.API_URL}/party/${req.params.id}`)
     .then(({ data }) => {
         console.log(data);
+
+        //Traitement de l'url pour google agenda
+        let date = data.date.split('T')[0].replace(/-/gi, '');
+        let name = data.name.replace(/ /gi, '+');
+        let url = `${process.env.FRONT_URL}:${process.env.PORT}/party/${data._id}`
+        //prblm avec les date en fin de mois
+        let googleAgendaLink = `https://calendar.google.com/calendar/r/eventedit?text=${name}&dates=${date}/${parseInt(date) + 1}&ctz=Europe/Paris&trp=true&location=${url}&details=`;
+
         res.render('party', {
           party: data,
           title: data.name,
-          url: `${process.env.FRONT_URL}:${process.env.PORT}/party/${data._id}`,
-          apiUrl: `${process.env.API_URL}/party/${req.params.id}`
+          url: url,
+          apiUrl: `${process.env.API_URL}/party/${req.params.id}`,
+          googleAgendaLink: googleAgendaLink
         });
       }
     )
