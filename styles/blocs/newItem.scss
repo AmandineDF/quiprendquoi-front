@@ -58,10 +58,23 @@
     input, button {
       grid-row: 2;
     }
-  
-    &.newItems__grid--form {
-      grid-template-rows: 1fr 2fr;
-    }
+  }
+}
+
+.newItems__grid--form {
+  display: flex;
+  margin-bottom: 2em;
+
+  li {
+    padding: 0.5em 0em;
+  }
+
+  label {
+    grid-row: 1;
+  }
+
+  input, button {
+    grid-row: 2;
   }
 }
 

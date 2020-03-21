@@ -25,7 +25,6 @@ app.post('/party', function(req, res) {
 });
 
 
-
 //EVENEMENT
 app.get('/party/:id', function(req, res) {
   axios
@@ -60,9 +59,14 @@ app.post('/party/:id/items', function(req, res) {
     .catch((err) => res.send(err));
 });
 
+app.post('/party/:id/items/:itemId/user', function(req, res) {
+  axios
+    .patch(`${process.env.API_URL}/party/${req.params.id}/items/${req.params.itemId}`, req.body)
+    .then(() => res.redirect(`/party/${req.params.id}`))
+    .catch((err) => res.send(err));
+});
 
 app.post('/party/:id/items/:itemId/delete', function(req, res) {
-  console.log("test");
   axios
     .delete(`${process.env.API_URL}/party/${req.params.id}/items/${req.params.itemId}`, req.body)
     .then(() => res.redirect(`/party/${req.params.id}`))

@@ -14,6 +14,7 @@ function reload() {
       if( oldJSON !== JSON.stringify(response)) {
         oldJSON = JSON.stringify(response);
         console.log('Update détectée !');
+        /*
         let container = document.querySelector(".items__container");
         container.innerHTML="";
         response.items.forEach(item => {
@@ -27,6 +28,7 @@ function reload() {
           </div>
           `;
         });
+        */
       }
     })
     .catch(error => console.log("Erreur : " + error));

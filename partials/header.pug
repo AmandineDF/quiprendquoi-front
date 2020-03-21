@@ -14,6 +14,6 @@ html(lang="fr")
           .then(() => console.log('Le service worker est enregistré'))
           .catch(err => console.warn(err));
       } else {
-        console.log('Pas de support du service worker');
+        console.warn('Pas de support du service worker');
       }
   body

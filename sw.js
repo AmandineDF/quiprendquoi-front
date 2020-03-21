@@ -8,7 +8,7 @@ addEventListener('install', (event) => {
 });
 
 addEventListener('fetch', (event) => {
-  console.log(event);
+  //console.log(event);
   if (event.request.headers.get('Accept').includes('text/html')) {
     event.respondWith(
       fetch(event.request)
