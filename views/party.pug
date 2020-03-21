@@ -1,6 +1,8 @@
 include ../partials/header.pug
 script.
-  party = !{JSON.stringify(party)}
+  const party = !{JSON.stringify(party)}
+  const apiUrl = !{JSON.stringify(apiUrl)}
+  const url =!{JSON.stringify(url)}
 h1 Qui prend quoi ?
 main.main
   h2= party.name
@@ -9,13 +11,16 @@ main.main
   div.sharing
     label(for="url") Partagez l'événement
     input(id="url" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` data-share-title=`${party.name}` data-share-text=`${party.author} vous invite a rejoindre l'événement ${party.name}`)
-  
-  each item in party.items
-    div.newItems__grid
-      li.col-1= item.user
-      li.col-2= item.name
-      form(method="post" action=`${url}/items/${item._id}/delete`).col-3
-        button(type="submit").deleteItem__button Supprimer
+
+  div.items__container
+  //-
+    each item in party.items
+      div.newItems__grid
+        li.col-1= item.user
+        li.col-2= item.name
+        form(method="post" action=`${url}/items/${item._id}/delete`).col-3
+          button(type="submit").deleteItem__button Supprimer
+  -//
   
   form(method="post" action=`${url}/items`).newItems__grid.newItems__grid--form
     label(for="user").col-1 Participant

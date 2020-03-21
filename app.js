@@ -26,7 +26,7 @@ app.post('/party', function(req, res) {
 
 
 
-//EVENEMNT
+//EVENEMENT
 app.get('/party/:id', function(req, res) {
   axios
     .get(`${process.env.API_URL}/party/${req.params.id}`)
@@ -36,6 +36,7 @@ app.get('/party/:id', function(req, res) {
           party: data,
           title: data.name,
           url: `${process.env.FRONT_URL}:${process.env.PORT}/party/${data._id}`,
+          apiUrl: `${process.env.API_URL}/party/${req.params.id}`
         });
       }
     )
