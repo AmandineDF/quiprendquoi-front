@@ -60,13 +60,15 @@ app.post('/party/:id/items', function(req, res) {
     .catch((err) => res.send(err));
 });
 
-//DESIGNATE WHO BRINGS AN ITEM
+//DESIGNATE WHO BRINGS AN ITEM (old)
+/*
 app.post('/party/:id/items/:itemId/user', function(req, res) {
   axios
     .patch(`${process.env.API_URL}/party/${req.params.id}/items/${req.params.itemId}`, req.body)
     .then(() => res.redirect(`/party/${req.params.id}`))
     .catch((err) => res.send(err));
 });
+*/
 
 //DELETE AN ITEM
 app.post('/party/:id/items/:itemId/delete', function(req, res) {

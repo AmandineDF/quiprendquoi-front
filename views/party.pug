@@ -14,6 +14,15 @@ main.main
     a(href=`${googleAgendaLink}` target="_blank") Ajouter à Google Agenda
 
   div.items__container
+
+  //-Prblm : prévoir une sécurité quand un item est déjà existant dans la liste
+  form(method="post" action=`${url}/items`).newItems__grid
+    label(for="name").col-2 Ajouter un item
+    input(name="name" id="name" required placeholder="Champagne").col-2
+    //- Hidden input because user is empty by default
+    input(name="user" type="hidden" value="EMPTY_USER")
+    button(type="submit").newItem__button.col-3 Ajouter
+  //-V2 items list
     each item in party.items
       div.newItems__grid
         li.col-1= item.name
@@ -34,15 +43,7 @@ main.main
         li.col-2= item.name
         form(method="post" action=`${url}/items/${item._id}/delete`).col-3
           button(type="submit").deleteItem__button Supprimer
-
+//- V2 Form
   form(method="post" action=`${url}/items`).newItems__grid--form
     input(name="name" id="name" required placeholder="Ajouter un item")
     button(type="submit").newItem__button.col-3 Ajouter 
-
-//- Initial form
-  form(method="post" action=`${url}/items`).newItems__grid.newItems__grid--form
-    label(for="user").col-1 Participant
-    input(name="user" id="user" required placeholder="Manu").col-1
-    label(for="name").col-2 Ajouter un item
-    input(name="name" id="name" required placeholder="Champagne").col-2
-    button(type="submit").newItem__button.col-3 Ajouter
