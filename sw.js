@@ -1,9 +1,9 @@
 addEventListener('install', (event) => {
-  console.log('Le service worker est installé');
+  console.log('Le service worker est bien installé');
   event.waitUntil(
     caches.open('offline').then((cache) => {
       cache.add('offline.html');
-    })
+    }),
   );
 });
 
@@ -32,6 +32,16 @@ addEventListener('fetch', (event) => {
             return caches.match('offline.html');
           }
         }),
+    );
+  } else {
+    event.respondWith(
+      fetch(event.request)
+        .then((res) => {
+          const copy = res.clone();
+          caches.open('static').then((cache) => cache.put(event.request, copy));
+          return res;
+        })
+        .catch(() => caches.match(event.request)),
     );
   }
 });
