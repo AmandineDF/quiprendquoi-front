@@ -1,11 +1,11 @@
 {
   "name": "Qui Prend Quoi",
   "short_name": "QPQ",
-  "theme_color": "rgb(123,36,221)",
-  "background_color": "rgb(241,242,245)",
+  "theme_color": "#3f4cbe",
+  "background_color": "#3f4cbe",
   "display": "standalone",
   "orientation": "portrait",
-  "Scope": "/",
+  "scope": "/",
   "start_url": "/",
   "icons": [
     {
