@@ -1,0 +1,30 @@
+//Input Highlight
+@keyframes inputHighlight {
+	from {
+    background: $primary;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+@-webkit-keyframes inputHighlight {
+	from {
+    background: $primary;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+@-moz-keyframes inputHighlight {
+	from {
+    background: $primary;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}

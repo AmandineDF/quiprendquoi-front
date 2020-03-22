@@ -1,0 +1,141 @@
+.form__new-user {
+
+  input {
+    padding: 0 $s-space;
+    min-width: 0;
+    max-width: 100px;
+
+    @include medium {
+      max-width: 100%;
+    }
+  }
+}
+
+.form__field{
+  margin-bottom: $l-space;
+  position: relative;
+
+  label {
+    @include formLabel;
+    margin-bottom: $m-space;
+    display: block;
+  }
+  
+  input {
+    width: 100%;
+    padding: $s-space;
+    display: block;
+  }
+
+  @include medium {
+    width: 400px;
+  }
+}
+
+.form__field--inline {
+  margin-bottom: 0;
+
+  label {
+    margin-bottom: $s-space;
+  }
+
+  .inline__field {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.form--inline {
+  display: flex;
+  flex-direction: row;
+
+  * {
+    margin-bottom: 0;
+  }
+}
+
+.form__field--date{
+  label {
+    position: relative;
+    left: -5px;
+  }
+}
+
+.form__field--text {
+  input {
+    border: none;
+    border-bottom: 1px solid $grey;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  label {
+    position: absolute;
+    left: 10px;
+    top: 7px;
+
+    pointer-events: none;
+
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+  }
+
+  input:focus ~ label, input:valid ~ label {
+    top: -20px;
+    @include fs($xs-text);
+    color: $primary;
+  }
+
+  .bar {
+    width: 100%;
+    position: relative;
+    display: block;
+
+    &::before, &::after {
+      content: '';
+      height: 2px; 
+      width: 0;
+      background: $primary;
+  
+      position: absolute;
+      bottom: 0px; 
+  
+      transition:0.2s ease all; 
+      -moz-transition:0.2s ease all; 
+      -webkit-transition:0.2s ease all;
+    }
+
+    &::before {
+      left: 50%;
+    }
+
+    &::after {
+      right: 50%;
+    }
+  }
+
+  input:focus ~ .bar::before, input:focus ~ .bar::after {
+    width: 50%;
+  }
+
+  .highlight {
+    height: 60%;
+    width: 100%;
+
+    position: absolute;
+    top: 25%; 
+    left: 0;
+
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  input:focus ~ .highlight {
+    -webkit-animation: inputHighlight 0.3s ease;
+    -moz-animation: inputHighlight 0.3s ease;
+    animation: inputHighlight 0.3s ease;
+  }
+}

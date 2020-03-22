@@ -3,47 +3,29 @@ script.
   const party = !{JSON.stringify(party)}
   const apiUrl = !{JSON.stringify(apiUrl)}
   const url =!{JSON.stringify(url)}
-h1 Qui prend quoi ?
 main.main
-  h2= party.name
-  h3 Créé par #{party.author}
+  div.title
+    p.title__label QPQ
+  section.card
+    h2.event__title= party.name
+    h3.event__subtitle Créé par #{party.author}
 
-  div.sharing
-    label(for="url") Partagez l'événement
-    input(id="url" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` data-share-title=`${party.name}` data-share-text=`${party.author} vous invite a rejoindre l'événement ${party.name}`)
-    a(href=`${googleAgendaLink}` target="_blank") Ajouter à Google Agenda
+    div.form__field.form__field--inline
+      label(for="url") Partagez l'événement
+      div.inline__field
+        input(id="url" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` data-share-title=`${party.name}` data-share-text=`${party.author} vous invite a rejoindre l'événement ${party.name}`)
+    a(href=`${googleAgendaLink}` target="_blank").link__button--simple.link__button--google Ajouter à Google Agenda
 
-  div.items__container
+    h2.card__title Qui Prend Quoi ?
+    div.items__container
 
-  //-Prblm : prévoir une sécurité quand un item est déjà existant dans la liste
-  form(method="post" action=`${url}/items`).newItems__grid
-    label(for="name").col-2 Ajouter un item
-    input(name="name" id="name" required placeholder="Champagne").col-2
-    //- Hidden input because user is empty by default
-    input(name="user" type="hidden" value="EMPTY_USER")
-    button(type="submit").newItem__button.col-3 Ajouter
-  //-V2 items list
-    each item in party.items
-      div.newItems__grid
-        li.col-1= item.name
-
-        if item.user
-          form(method="post" action=`${url}/items/${item._id}/user`).col-2
-            input(name="user" id="user" value=`${item.user}`)
-        else
-          form(method="post" action=`${url}/items/${item._id}/user`).col-2
-            input(name="user" id="user" placeholder="Qui prend ?")
-        
-        form(method="post" action=`${url}/items/${item._id}/delete`).col-3
-          button(type="submit").deleteItem__button Supprimer
-  //- Initial items list
-    each item in party.items
-      div.newItems__grid
-        li.col-1= item.user
-        li.col-2= item.name
-        form(method="post" action=`${url}/items/${item._id}/delete`).col-3
-          button(type="submit").deleteItem__button Supprimer
-//- V2 Form
-  form(method="post" action=`${url}/items`).newItems__grid--form
-    input(name="name" id="name" required placeholder="Ajouter un item")
-    button(type="submit").newItem__button.col-3 Ajouter 
+    //-Prblm : prévoir une sécurité quand un item est déjà existant dans la liste
+    form(method="post" action=`${url}/items`).form--inline
+      div.form__field.form__field--text
+        input(name="name" id="name" required)
+        span.highlight
+        span.bar
+        label(for="name") Ajouter un item
+        //- Hidden input because user is empty by default
+        input(name="user" type="hidden" value="EMPTY_USER")
+      button(type="submit").inline__button Ajouter

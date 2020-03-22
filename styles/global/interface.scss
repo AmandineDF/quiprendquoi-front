@@ -1,0 +1,26 @@
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  @include columnDisplay(center, center);
+
+  font-size: 100%;
+
+  background-color: $primary;
+
+  * {
+    font-family: 'Raleway', sans-serif;
+    @include fs($m-text);
+  }
+}
+
+.main {
+  @include fullScreenSize;
+  @include columnDisplay(center, center);
+  max-width: 95%;
+
+  @include medium {
+    width: auto;
+  }
+}

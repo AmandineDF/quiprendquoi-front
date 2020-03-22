@@ -1,0 +1,36 @@
+.title {
+  margin-bottom: $l-space;
+  max-width: 90%;
+  color: #fff;
+  text-align: center;
+
+  .title__label {
+    @include bigTitle;
+  }
+  
+  .title__name {
+    @include subTitle;
+    margin-bottom: $s-space;
+  }
+
+  .title__desc {
+    @include lightTitle;
+  }
+}
+
+.card__title {
+  margin-bottom: $l-space;
+  @include cardTitle;
+  color: $primary;
+}
+
+.event__title {
+  @include BigCardTitle;
+  color: $primary;
+}
+
+.event__subtitle {
+  @include cardTitle;
+  opacity: 0.5;
+  margin-bottom: $m-space;
+}

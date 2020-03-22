@@ -1,43 +1,18 @@
 @import "vendors/reset.scss";
+
 @import "config/medias.scss";
-@import "blocs/newParty.scss";
-@import "blocs/newItem.scss";
+@import "config/fonts.scss";
+@import "config/colors.scss";
+@import "config/spacing.scss";
+@import "config/anim.scss";
 
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(241, 242, 245);
-}
+@import "global/layout.scss";
+@import "global/typography.scss";
+@import "global/interface.scss";
 
-h1, h2, h3 {
-  text-align: center;
-  margin-bottom: 1em;
-}
-
-h1 {
-  font-size: 3rem;
-  text-transform: uppercase;
-  font-weight: 900;
-  color: rgb(120, 149, 158);
-}
-
-.main {
-  background-color: white;
-  padding: 3em;
-  border-radius: 5px;
-
-  h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-  
-  label {
-    display: block;
-  }
-
-  input {
-    padding: 0.5rem;
-  }
-}
+@import "blocs/title.scss";
+@import "blocs/card.scss";
+@import "blocs/button.scss";
+@import "blocs/content.scss";
+@import "blocs/form.scss";
+@import "blocs/items.scss";

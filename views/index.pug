@@ -1,16 +1,26 @@
 include ../partials/header.pug
-
-h1 Qui prend quoi ?
 main.main
-  h2 Créer un événement
-  form(method="post" action="/party").newParty
-    div.newParty__fields
-      label(for="name") Nom de l'événement
-      input(name="name" id="name" required minlength="3" placeholder="Nouvel an")
-      label(for="author" required) Organisateur
-      input(name="author" id="author" required minlength="3" placeholder="John Doe")
-      label(for="date") Date de l'événement
-      input(name="date" id="date" type="date")
-    button(type="submit").newParty__button Créer
-  h3 Vos événements enregistrés :
-  ul(id="savedEvents")
+  div.title
+    p.title__label QPQ
+    h1.title__name Qui prend quoi ?
+    h2.title__desc Pour ne rien oublier lors de vos événements
+  section.card
+    div.event__creation
+      h3.card__title Créer un événement
+      form(method="post" action="/party").form
+        div.form__fields
+          div.form__field.form__field--text
+            input(name="name" id="name" required minlength="3")
+            span.highlight
+            span.bar
+            label(for="name") Nom de l'événement
+          div.form__field.form__field--text
+            input(name="author" id="author" required minlength="3")
+            span.highlight
+            span.bar
+            label(for="name") Organisateur
+          div.form__field.form__field--date
+            label(for="date") Date de l'événement
+            input(name="date" id="date" type="date")
+        button(type="submit").form__button Créer
+    ul(id="savedEvents").saved__events

@@ -1,0 +1,68 @@
+.form__button {
+  width: 100%;
+  padding: $m-space $xl-space;
+
+  position: relative;
+
+  background-color: $secondary;
+  border-radius: 50px;
+  @include buttonLabel;
+  box-shadow: 0px 6px 0px rgb(201, 18, 55);
+  transition: all ease 0.3s;
+
+  @include medium {
+    max-width: 250px;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 10px 0px rgb(201, 18, 55);
+  }
+
+  &:active {
+    transform: translateY(4px);
+    background-color: rgb(255, 64, 102);
+    box-shadow: 0px 2px 0px rgb(201, 18, 55); 
+  }
+}
+
+.link__button {
+  @include buttonLabel($primary);
+  background: $tertiary;
+  padding: $s-space $m-space;
+  border-radius: 50px;
+  transition: background ease 0.2s;
+  margin: $s-space;
+
+  &:hover {
+    background: rgba(63, 76, 190, 0.404);
+  }
+}
+
+.link__button--simple {
+  @include buttonLabel($primary);
+  text-decoration: underline;
+  transition: background ease 0.2s;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.inline__button {
+  @include buttonLabel;
+  background: $secondary;
+  padding: 0 $m-space;
+  border-radius: 0px 5px 5px 0px;
+}
+
+.cross__button {
+  button {
+    transform: rotate(45deg);
+    font-size: 40px;
+    line-height: 1;
+    font-size: 50px;
+    line-height: 0.6;
+    color: $grey;
+  }
+}
